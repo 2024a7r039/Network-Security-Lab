@@ -1,0 +1,17 @@
+from hashlib import sha256 
+print(sha256("hello" .encode()).hexdigest())
+
+def hashing(plain_text):
+    hash_value = sha256(plain_text.encode()).hexdigest()
+    return hash_value
+
+def hash_file(file_path):
+    with open (file_path, "rb") as file: #rb- read binary 
+        data = file.read()
+    return sha256(data).hexdigest()
+
+plain_text = input("Enter the string you want to hash: ")
+print(hashing(plain_text))
+
+file_path = input("Enter file name if in same folder else path: ")
+print(hash_file(file_path))
